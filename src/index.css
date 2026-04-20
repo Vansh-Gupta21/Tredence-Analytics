@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-canvas text-gray-100 font-sans;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+}
+
+/* React Flow overrides */
+.react-flow__background {
+  background-color: #0f1117;
+}
+
+.react-flow__background pattern circle {
+  fill: #2e3348;
+}
+
+.react-flow__edge-path {
+  stroke: #4a5568;
+  stroke-width: 2;
+}
+
+.react-flow__edge.animated .react-flow__edge-path {
+  stroke-dasharray: 5;
+  animation: dashdraw 0.5s linear infinite;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #3b82f6;
+}
+
+.react-flow__controls {
+  background: #1a1d27;
+  border: 1px solid #2e3348;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+.react-flow__controls-button {
+  background: #1a1d27;
+  border: none;
+  border-bottom: 1px solid #2e3348;
+  color: #9ca3af;
+  padding: 8px;
+  transition: all 0.15s;
+}
+
+.react-flow__controls-button:hover {
+  background: #22263a;
+  color: #e5e7eb;
+}
+
+.react-flow__controls-button svg {
+  fill: currentColor;
+}
+
+.react-flow__minimap {
+  background: #1a1d27;
+  border: 1px solid #2e3348;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.react-flow__minimap-mask {
+  fill: rgba(59, 130, 246, 0.1);
+  stroke: #3b82f6;
+}
+
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #2e3348;
+  background: #1a1d27;
+  transition: all 0.15s;
+}
+
+.react-flow__handle:hover {
+  width: 14px;
+  height: 14px;
+  background: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.react-flow__handle-connecting {
+  background: #22c55e !important;
+  border-color: #22c55e !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2e3348;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a5568;
+}
+
+@keyframes dashdraw {
+  from { stroke-dashoffset: 10; }
+}
+
+/* Node selection glow */
+.react-flow__node.selected > div {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.6), 0 8px 32px rgba(0,0,0,0.4);
+}
