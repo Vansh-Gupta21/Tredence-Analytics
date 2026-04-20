@@ -26,7 +26,7 @@ Designed, configured, and simulated internal HR workflows—such as employee onb
 
 ## Live Demo
 
-> 🔗 **[app link](link)**
+> 🔗 **[tredence-analytics](https://tredence-analytics.vercel.app/)**
 
 ---
 
