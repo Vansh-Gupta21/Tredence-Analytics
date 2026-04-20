@@ -54,7 +54,7 @@ export const AutomatedStepNodeForm: React.FC<Props> = ({ node }) => {
       updateNodeData(node.id, {
         title: values.title ?? '',
         actionId: values.actionId ?? '',
-        actionParams: values.actionParams ?? {},
+        actionParams: (values.actionParams as Record<string, string>) ?? {},
       });
     });
     return () => sub.unsubscribe();

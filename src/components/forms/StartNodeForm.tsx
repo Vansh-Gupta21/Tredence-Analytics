@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { WorkflowNode, StartNodeData } from '../../types/workflow';
+import { WorkflowNode, StartNodeData, KeyValuePair } from '../../types/workflow';
 import { useWorkflowStore } from '../../hooks/useWorkflowStore';
 import { Field, inputClass } from './shared/Field';
 import { KeyValueEditor } from './shared/KeyValueEditor';
@@ -38,7 +38,7 @@ export const StartNodeForm: React.FC<Props> = ({ node }) => {
     const sub = watch(values => {
       updateNodeData(node.id, {
         title: values.title ?? '',
-        metadata: values.metadata ?? [],
+        metadata: (values.metadata as KeyValuePair[]) ?? [],
       });
     });
     return () => sub.unsubscribe();

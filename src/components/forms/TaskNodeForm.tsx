@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { WorkflowNode, TaskNodeData } from '../../types/workflow';
+import { WorkflowNode, TaskNodeData, KeyValuePair } from '../../types/workflow';
 import { useWorkflowStore } from '../../hooks/useWorkflowStore';
 import { Field, inputClass, textareaClass } from './shared/Field';
 import { KeyValueEditor } from './shared/KeyValueEditor';
@@ -49,7 +49,7 @@ export const TaskNodeForm: React.FC<Props> = ({ node }) => {
         description: values.description ?? '',
         assignee: values.assignee ?? '',
         dueDate: values.dueDate ?? '',
-        customFields: values.customFields ?? [],
+        customFields: (values.customFields as KeyValuePair[]) ?? [],
       });
     });
     return () => sub.unsubscribe();

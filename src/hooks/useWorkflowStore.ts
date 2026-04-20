@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { temporal } from 'zundo';
 import {
-  Node,
   Edge,
   addEdge,
   applyNodeChanges,
